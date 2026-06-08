@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人介绍 | 你的名字</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== 顶部导航栏 ========== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <!-- 站点 Logo / 姓名缩写，可修改 -->
+      <a href="#home" class="logo">YL</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">首页</a></li>
+          <li><a href="#skills" class="nav-link">技能</a></li>
+          <li><a href="#projects" class="nav-link">项目</a></li>
+          <li><a href="#contact" class="nav-link">联系</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== 个人简介区 ========== -->
+    <section id="home" class="section hero">
+      <div class="container hero-content">
+        <!-- 头像占位：将 src 替换为你的头像图片路径，或保留占位样式 -->
+        <div class="avatar-wrapper">
+          <img src="" alt="头像" class="avatar" id="avatar">
+          <span class="avatar-placeholder">头像</span>
+        </div>
+        <div class="hero-text">
+          <!-- ↓↓↓ 修改以下个人信息 ↓↓↓ -->
+          <h1 class="name">刘洋</h1>
+          <p class="tagline">热爱编程的前端开发者，专注于打造简洁优雅的用户体验</p>
+          <!-- ↑↑↑ 修改以上个人信息 ↑↑↑ -->
+          <a href="#projects" class="btn btn-primary">查看我的项目</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 技能 / 技术栈展示区 ========== -->
+    <section id="skills" class="section skills">
+      <div class="container">
+        <h2 class="section-title">技能 & 技术栈</h2>
+        <p class="section-desc">我日常使用的技术与工具</p>
+        <div class="skills-grid">
+          <!-- ↓↓↓ 按需增删技能卡片 ↓↓↓ -->
+          <div class="skill-card">
+            <span class="skill-icon">HTML</span>
+            <h3>HTML5</h3>
+            <p>语义化标签、无障碍访问</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-icon">CSS</span>
+            <h3>CSS3</h3>
+            <p>Flexbox、Grid、响应式布局</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-icon">JS</span>
+            <h3>JavaScript</h3>
+            <p>ES6+、DOM 操作、异步编程</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-icon">React</span>
+            <h3>React</h3>
+            <p>组件化开发、Hooks、状态管理</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-icon">Node</span>
+            <h3>Node.js</h3>
+            <p>Express、RESTful API</p>
+          </div>
+          <div class="skill-card">
+            <span class="skill-icon">Git</span>
+            <h3>Git</h3>
+            <p>版本控制、协作开发</p>
+          </div>
+          <!-- ↑↑↑ 按需增删技能卡片 ↑↑↑ -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 项目经历展示区 ========== -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2 class="section-title">项目经历</h2>
+        <p class="section-desc">部分代表性作品</p>
+        <div class="projects-grid">
+          <!-- ↓↓↓ 按需增删项目卡片 ↓↓↓ -->
+          <article class="project-card">
+            <div class="project-header">
+              <h3>个人博客系统</h3>
+              <span class="project-tag">全栈</span>
+            </div>
+            <p class="project-desc">
+              基于 React + Node.js 搭建的博客平台，支持 Markdown 写作、标签分类与全文搜索。
+            </p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+            </div>
+            <a href="#" class="btn btn-outline" target="_blank" rel="noopener">查看详情</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>待办事项应用</h3>
+              <span class="project-tag">前端</span>
+            </div>
+            <p class="project-desc">
+              简洁高效的 Todo 应用，支持任务分组、拖拽排序与本地持久化存储。
+            </p>
+            <div class="project-tech">
+              <span>Vue 3</span>
+              <span>TypeScript</span>
+              <span>Pinia</span>
+            </div>
+            <a href="#" class="btn btn-outline" target="_blank" rel="noopener">查看详情</a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3>数据可视化大屏</h3>
+              <span class="project-tag">可视化</span>
+            </div>
+            <p class="project-desc">
+              企业级数据监控大屏，实时展示业务指标，支持多图表联动与主题切换。
+            </p>
+            <div class="project-tech">
+              <span>ECharts</span>
+              <span>WebSocket</span>
+              <span>Canvas</span>
+            </div>
+            <a href="#" class="btn btn-outline" target="_blank" rel="noopener">查看详情</a>
+          </article>
+          <!-- ↑↑↑ 按需增删项目卡片 ↑↑↑ -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 联系方式区 ========== -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title">联系我</h2>
+        <p class="section-desc">欢迎交流合作，随时联系我</p>
+        <div class="contact-cards">
+          <!-- ↓↓↓ 修改以下联系方式 ↓↓↓ -->
+          <a href="mailto:your.email@example.com" class="contact-card">
+            <span class="contact-icon">✉</span>
+            <div>
+              <h3>邮箱</h3>
+              <p>your.email@example.com</p>
+            </div>
+          </a>
+          <a href="https://github.com/your-username" class="contact-card" target="_blank" rel="noopener">
+            <span class="contact-icon">⌘</span>
+            <div>
+              <h3>GitHub</h3>
+              <p>github.com/your-username</p>
+            </div>
+          </a>
+          <!-- ↑↑↑ 修改以上联系方式 ↑↑↑ -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="footer">
+    <div class="container">
+      <!-- ↓↓↓ 修改版权信息 ↓↓↓ -->
+      <p>&copy; 2026 刘洋. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
