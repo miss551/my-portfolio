@@ -1,140 +1,106 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/**
+ * 个人简历单页 - 交互脚本
+ * 直接用浏览器打开 index.html 即可运行
+ */
+(function () {
+  "use strict";
 
-body {
-  font-family: "Microsoft YaHei", sans-serif;
-  background-color: #0f1116;
-  color: #d1d5db;
-  line-height: 1.8;
-  font-size: 15px;
-}
+  const navbar = document.querySelector(".navbar");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+  const navSections = ["home", "skills", "projects", "contact"];
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 50px 20px;
-}
+  // 导航栏滚动阴影
+  function handleNavbarScroll() {
+    navbar.classList.toggle("scrolled", window.scrollY > 10);
+  }
 
-/* 头部样式 */
-.header {
-  text-align: center;
-  margin-bottom: 60px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid #272a33;
-}
+  window.addEventListener("scroll", handleNavbarScroll, { passive: true });
+  handleNavbarScroll();
 
-.header h1 {
-  font-size: 46px;
-  color: #ffffff;
-  letter-spacing: 8px;
-  margin-bottom: 12px;
-}
+  // 锚点平滑跳转（导航栏、Logo、按钮等）
+  function scrollToSection(targetEl) {
+    const top =
+      targetEl.getBoundingClientRect().top +
+      window.scrollY -
+      navbar.offsetHeight;
 
-.header p {
-  font-size: 17px;
-  color: #9ca3af;
-}
+    window.scrollTo({ top: top, behavior: "smooth" });
+  }
 
-/* 卡片通用样式 */
-.card {
-  background-color: #181b23;
-  border: 1px solid #272a33;
-  border-radius: 14px;
-  padding: 32px;
-  margin-bottom: 26px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
+  function setActiveNavLink(activeLink) {
+    navLinks.forEach(function (link) {
+      link.classList.toggle("active", link === activeLink);
+    });
+  }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+  anchorLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href").slice(1);
+      const targetEl = document.getElementById(targetId);
 
-.card:hover {
-  border-color: #3b82f6;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
-}
+      if (!targetEl) return;
 
-.card h2 {
-  font-size: 24px;
-  color: #ffffff;
-  margin-bottom: 20px;
-  border-left: 4px solid #3b82f6;
-  padding-left: 14px;
-}
+      e.preventDefault();
+      scrollToSection(targetEl);
 
-/* 列表样式 */
-.info-list {
-  list-style: none;
-  margin-bottom: 20px;
-}
+      const matchedNav = document.querySelector(
+        '.nav-link[href="#' + targetId + '"]'
+      );
+      if (matchedNav) {
+        setActiveNavLink(matchedNav);
+      }
+    });
+  });
 
-.info-list li {
-  padding: 5px 0;
-  font-size: 15px;
-}
+  // 滚动时高亮当前导航项
+  const sectionObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const matchedLink = document.querySelector(
+            '.nav-link[href="#' + entry.target.id + '"]'
+          );
+          if (matchedLink) {
+            setActiveNavLink(matchedLink);
+          }
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "-64px 0px -60% 0px",
+      threshold: 0,
+    }
+  );
 
-.course h3 {
-  font-size: 17px;
-  color: #e5e7eb;
-  margin: 15px 0 8px;
-}
+  navSections.forEach(function (id) {
+    const section = document.getElementById(id);
+    if (section) {
+      sectionObserver.observe(section);
+    }
+  });
 
-/* 经历模块 */
-.item {
-  margin-bottom: 10px;
-}
+  // 模块滚动渐入动画
+  const fadeBlocks = document.querySelectorAll(".fade-block");
 
-.item h3 {
-  font-size: 17px;
-  color: #f3f4f6;
-  margin-bottom: 10px;
-}
+  const fadeObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
 
-.item h3 span {
-  font-size: 14px;
-  color: #9ca3af;
-  font-weight: normal;
-  margin-left: 10px;
-}
-
-.item p {
-  margin: 6px 0;
-  color: #d1d5db;
-}
-
-.achievement {
-  color: #60a5fa !important;
-  margin-top: 10px;
-}
-
-/* 荣誉列表 */
-.honor-list {
-  list-style: none;
-}
-
-.honor-list li {
-  padding: 6px 0;
-  position: relative;
-  padding-left: 18px;
-}
-
-.honor-list li::before {
-  content: "•";
-  color: #3b82f6;
-  position: absolute;
-  left: 0;
-}
-
-/* 联系方式 */
-.contact p {
-  font-size: 16px;
-  margin: 8px 0;
-}
+  fadeBlocks.forEach(function (block, index) {
+    block.style.transitionDelay = index % 4 === 0 ? "0s" : "0.08s";
+    fadeObserver.observe(block);
+  });
+})();
