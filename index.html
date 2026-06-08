@@ -1,91 +1,179 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>刘洋 - 个人简历网站</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>刘洋 - 个人简历</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- 头部 -->
-    <header class="header">
-      <h1>刘 洋</h1>
-      <p>南昌理工学院 | 计算机科学与技术 本科</p>
-    </header>
+
+  <!-- 顶部导航栏 -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">YL</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">首页</a></li>
+          <li><a href="#skills" class="nav-link">技能</a></li>
+          <li><a href="#projects" class="nav-link">项目</a></li>
+          <li><a href="#contact" class="nav-link">联系</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 首页 -->
+    <section id="home" class="section hero">
+      <div class="container hero-content fade-block">
+        <div class="avatar-wrapper">
+          <img src="" alt="刘洋" class="avatar" id="avatar">
+          <span class="avatar-placeholder">刘洋</span>
+        </div>
+        <div class="hero-text">
+          <p class="welcome">你好，欢迎访问我的个人主页</p>
+          <h1 class="name">刘洋</h1>
+          <p class="tagline">南昌理工学院 · 计算机科学与技术 · 本科在读</p>
+          <p class="hero-sub">2022.08 — 2026.05（预计毕业）</p>
+          <a href="#projects" class="btn btn-primary">查看项目经历</a>
+        </div>
+      </div>
+    </section>
 
     <!-- 个人介绍 -->
-    <section class="card">
-      <h2>个人介绍</h2>
-      <p>
-        本人自我学习能力突出，对待目标任务严谨认真，专业知识扎实，系统掌握计算机核心课程及Java、Python编程、数据处理等关键技能。具备积极的工作态度，既能独立高效完成工作任务，也能快速融入团队协作，拥有良好的文化素质与沟通表达能力。
-        <br><br>
-        熟练运用Excel数据透视表、数据可视化及常用函数组合，可高效处理复杂数据汇总与汇报工作，提升工作效率。通过主导酒店管理系统核心开发、参与招生实习及多次斩获全国性、校级专业竞赛一等奖，积累了技术实践、市场对接与数据驱动决策的综合经验。未来工作中，将以充沛的精力投入岗位，持续稳定提升业务能力，渴望在优质平台充分发挥自身优势，与企业共同成长、共创价值。
-      </p>
-    </section>
-
-    <!-- 个人资料 & 教育背景 -->
-    <section class="card">
-      <h2>个人资料 & 教育背景</h2>
-      <ul class="info-list">
-        <li><strong>姓名：</strong>刘洋</li>
-        <li><strong>性别：</strong>男</li>
-        <li><strong>出生年月：</strong>2004年05月26日</li>
-        <li><strong>籍贯：</strong>江西九江</li>
-        <li><strong>学历：</strong>本科</li>
-        <li><strong>院校专业：</strong>南昌理工学院 计算机科学与技术</li>
-        <li><strong>就读时间：</strong>2022年08月 - 2026年05月（预计毕业）</li>
-      </ul>
-      <div class="course">
-        <h3>主修课程</h3>
-        <p>软件工程、Java编程、Python基础编程、算法设计与分析、计算机网络、计算机组成原理、Linux操作系统基本原理、数据结构</p>
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title fade-block">个人介绍</h2>
+        <div class="content-card fade-block">
+          <p class="text-paragraph">
+            本人自我学习能力突出，对待目标任务严谨认真，专业知识扎实，系统掌握计算机核心课程及 Java、Python 编程、数据处理等关键技能。具备积极的工作态度，既能独立高效完成工作任务，也能快速融入团队协作，拥有良好的文化素质与沟通表达能力。
+          </p>
+          <p class="text-paragraph">
+            熟练运用 Excel 数据透视表、数据可视化及常用函数组合，可高效处理复杂数据汇总与汇报工作，提升工作效率。通过主导酒店管理系统核心开发、参与招生实习及多次斩获全国性、校级专业竞赛一等奖，积累了技术实践、市场对接与数据驱动决策的综合经验。未来工作中，将以充沛的精力投入岗位，持续稳定提升业务能力，渴望在优质平台充分发挥自身优势，与企业共同成长、共创价值。
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- 实习经历 -->
-    <section class="card">
-      <h2>实习经历</h2>
-      <div class="item">
-        <h3>鑫优博教育 | 招生部门 <span>2025年12月24日 至今</span></h3>
-        <p>1. 负责潜在学员咨询对接，解答课程相关疑问，梳理学员需求并匹配对应课程，提升咨询转化效率；</p>
-        <p>2. 协助拓展招生渠道，参与线上线下招生活动策划执行，收集整理客户信息并完成邀约转化；</p>
-        <p>3. 使用Excel数据透视表及函数工具，统计分析招生数据，输出数据汇报，为招生策略优化提供支撑；</p>
-        <p class="achievement"><strong>实习成果：</strong>累计对接咨询学员23人次，促成报名转化5人。</p>
+    <!-- 教育背景 -->
+    <section id="education" class="section education-section">
+      <div class="container">
+        <h2 class="section-title fade-block">教育背景</h2>
+        <div class="content-card fade-block">
+          <div class="timeline-item">
+            <div class="timeline-time">2022.08 — 2026.05</div>
+            <div class="timeline-body">
+              <h3>南昌理工学院</h3>
+              <p class="timeline-meta">计算机科学与技术 · 本科（预计毕业）</p>
+              <p class="course-label">主修课程</p>
+              <div class="tag-list">
+                <span class="tag">软件工程</span>
+                <span class="tag">Java 编程</span>
+                <span class="tag">Python 基础编程</span>
+                <span class="tag">算法设计与分析</span>
+                <span class="tag">计算机网络</span>
+                <span class="tag">计算机组成原理</span>
+                <span class="tag">Linux 操作系统基本原理</span>
+                <span class="tag">数据结构</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 项目经历 -->
-    <section class="card">
-      <h2>项目经历</h2>
-      <div class="item">
-        <h3>酒店管理系统开发 | 核心开发成员</h3>
-        <p>1. 负责项目核心代码编写，覆盖数据处理、接口对接等关键环节；</p>
-        <p>2. 严格把控代码质量，保障代码可读性与运行稳定性；</p>
-        <p>3. 独立设计项目流程图，明确协作逻辑，推动团队高效落地需求。</p>
+    <!-- 荣誉奖项 -->
+    <section id="skills" class="section honors-section">
+      <div class="container">
+        <h2 class="section-title fade-block">荣誉奖项</h2>
+        <p class="section-desc fade-block">专业竞赛与语言能力</p>
+        <div class="honor-grid">
+          <div class="honor-item fade-block">大学生英语四级证书</div>
+          <div class="honor-item fade-block">2023 第三届全国大学生人工智能知识竞赛一等奖</div>
+          <div class="honor-item fade-block">2023 届信息技术知识竞赛校级一等奖</div>
+          <div class="honor-item fade-block">2024 全国 AI 服务技能大赛一等奖</div>
+          <div class="honor-item fade-block">2024 全国大学生 AI 科技竞赛一等奖</div>
+          <div class="honor-item fade-block">2024 大学生互联网技术与应用竞赛一等奖</div>
+        </div>
       </div>
     </section>
 
-    <!-- 个人荣誉 -->
-    <section class="card">
-      <h2>个人荣誉</h2>
-      <ul class="honor-list">
-        <li>大学生英语四级证书</li>
-        <li>2023 第三届全国大学生人工智能知识竞赛一等奖</li>
-        <li>2023 届信息技术知识竞赛校级一等奖</li>
-        <li>2024 全国AI服务技能大赛一等奖</li>
-        <li>2024 全国大学生AI科技竞赛一等奖</li>
-        <li>2024 大学生互联网技术与应用竞赛一等奖</li>
-      </ul>
+    <!-- 实习经历 & 项目经历 -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2 class="section-title fade-block">实习经历</h2>
+        <div class="content-card fade-block">
+          <div class="timeline-item">
+            <div class="timeline-time">2025.12.24 — 至今</div>
+            <div class="timeline-body">
+              <h3>鑫优博教育 <span class="role-tag">招生部门</span></h3>
+              <ul class="detail-list">
+                <li>负责潜在学员咨询对接，解答课程相关疑问，梳理学员需求并匹配对应课程，提升咨询转化效率；</li>
+                <li>协助拓展招生渠道，参与线上线下招生活动策划执行，收集整理客户信息并完成邀约转化；</li>
+                <li>使用 Excel 数据透视表及函数工具，统计分析招生数据，输出数据汇报，为招生策略优化提供支撑。</li>
+              </ul>
+              <p class="highlight-result">
+                <strong>成果：</strong>累计对接咨询学员 23 人次，促成报名转化 5 人。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title fade-block section-title-spaced">项目经历</h2>
+        <div class="project-card fade-block">
+          <div class="project-header">
+            <h3>酒店管理系统开发</h3>
+            <span class="project-tag">核心开发成员</span>
+          </div>
+          <ul class="detail-list">
+            <li>负责项目核心代码编写，覆盖数据处理、接口对接等关键环节；</li>
+            <li>严格把控代码质量，保障代码可读性与运行稳定性；</li>
+            <li>独立设计项目流程图，明确协作逻辑，推动团队高效落地需求。</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- 联系方式 -->
-    <section class="card contact">
-      <h2>联系方式</h2>
-      <p><strong>手机：</strong>15270582750</p>
-      <p><strong>邮箱：</strong>2624097055@qq.com</p>
-      <p><strong>地址：</strong>江西九江</p>
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title fade-block">联系方式</h2>
+        <p class="section-desc fade-block">欢迎交流合作，随时联系我</p>
+        <div class="contact-cards">
+          <a href="tel:15270582750" class="contact-card fade-block">
+            <span class="contact-icon">📱</span>
+            <div>
+              <h3>手机</h3>
+              <p>15270582750</p>
+            </div>
+          </a>
+          <a href="mailto:2624097055@qq.com" class="contact-card fade-block">
+            <span class="contact-icon">✉</span>
+            <div>
+              <h3>邮箱</h3>
+              <p>2624097055@qq.com</p>
+            </div>
+          </a>
+          <div class="contact-card fade-block contact-card-static">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h3>地址</h3>
+              <p>江西九江</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-  </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 刘洋. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
