@@ -1,98 +1,140 @@
-/**
- * 个人介绍单页 - 交互脚本
- * 直接用浏览器打开 index.html 即可运行，无需构建工具
- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-(function () {
-  "use strict";
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+  background-color: #0f1116;
+  color: #d1d5db;
+  line-height: 1.8;
+  font-size: 15px;
+}
 
-  // ========== DOM 元素引用 ==========
-  const navbar = document.querySelector(".navbar");
-  const navLinks = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll(".section");
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
 
-  // ========== 1. 导航栏滚动阴影 ==========
-  // 页面向下滚动超过 10px 时，给导航栏加上 scrolled 类
-  function handleNavbarScroll() {
-    if (window.scrollY > 10) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  }
+/* 头部样式 */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #272a33;
+}
 
-  window.addEventListener("scroll", handleNavbarScroll);
-  handleNavbarScroll(); // 初始化时执行一次
+.header h1 {
+  font-size: 46px;
+  color: #ffffff;
+  letter-spacing: 8px;
+  margin-bottom: 12px;
+}
 
-  // ========== 2. 导航点击平滑跳转 ==========
-  navLinks.forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+.header p {
+  font-size: 17px;
+  color: #9ca3af;
+}
 
-      // 获取目标区块的 id（如 #home → home）
-      const targetId = this.getAttribute("href").slice(1);
-      const targetSection = document.getElementById(targetId);
+/* 卡片通用样式 */
+.card {
+  background-color: #181b23;
+  border: 1px solid #272a33;
+  border-radius: 14px;
+  padding: 32px;
+  margin-bottom: 26px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
 
-      if (targetSection) {
-        // 计算滚动位置：区块顶部 - 导航栏高度，避免被导航栏遮挡
-        const navHeight = navbar.offsetHeight;
-        const top =
-          targetSection.getBoundingClientRect().top +
-          window.scrollY -
-          navHeight;
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-        window.scrollTo({ top: top, behavior: "smooth" });
-      }
+.card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+}
 
-      // 点击后立即高亮当前导航项
-      setActiveNavLink(this);
-    });
-  });
+.card h2 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  border-left: 4px solid #3b82f6;
+  padding-left: 14px;
+}
 
-  // ========== 3. 滚动时自动高亮对应导航项 ==========
-  function setActiveNavLink(activeLink) {
-    navLinks.forEach(function (link) {
-      link.classList.remove("active");
-    });
-    activeLink.classList.add("active");
-  }
+/* 列表样式 */
+.info-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
 
-  // 使用 IntersectionObserver 监听各区块是否进入视口
-  const observerOptions = {
-    root: null,
-    // 顶部偏移导航栏高度，底部留 60% 视口，使高亮切换更自然
-    rootMargin: "-64px 0px -60% 0px",
-    threshold: 0,
-  };
+.info-list li {
+  padding: 5px 0;
+  font-size: 15px;
+}
 
-  const sectionObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        const matchedLink = document.querySelector(
-          '.nav-link[href="#' + id + '"]'
-        );
-        if (matchedLink) {
-          setActiveNavLink(matchedLink);
-        }
-      }
-    });
-  }, observerOptions);
+.course h3 {
+  font-size: 17px;
+  color: #e5e7eb;
+  margin: 15px 0 8px;
+}
 
-  sections.forEach(function (section) {
-    sectionObserver.observe(section);
-  });
+/* 经历模块 */
+.item {
+  margin-bottom: 10px;
+}
 
-  // ========== 4. 页面加载淡入动画 ==========
-  // 给各区块依次添加淡入效果，增强视觉体验
-  sections.forEach(function (section, index) {
-    section.style.opacity = "0";
-    section.style.transform = "translateY(20px)";
-    section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+.item h3 {
+  font-size: 17px;
+  color: #f3f4f6;
+  margin-bottom: 10px;
+}
 
-    setTimeout(function () {
-      section.style.opacity = "1";
-      section.style.transform = "translateY(0)";
-    }, 150 + index * 100);
-  });
-})();
+.item h3 span {
+  font-size: 14px;
+  color: #9ca3af;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+.item p {
+  margin: 6px 0;
+  color: #d1d5db;
+}
+
+.achievement {
+  color: #60a5fa !important;
+  margin-top: 10px;
+}
+
+/* 荣誉列表 */
+.honor-list {
+  list-style: none;
+}
+
+.honor-list li {
+  padding: 6px 0;
+  position: relative;
+  padding-left: 18px;
+}
+
+.honor-list li::before {
+  content: "•";
+  color: #3b82f6;
+  position: absolute;
+  left: 0;
+}
+
+/* 联系方式 */
+.contact p {
+  font-size: 16px;
+  margin: 8px 0;
+}
